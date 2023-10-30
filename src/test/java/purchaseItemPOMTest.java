@@ -1,5 +1,6 @@
 import POMpages.HomepagePOM;
 import POMpages.cartPOM;
+import POMpages.loginPOM;
 import org.junit.jupiter.api.Test;
 import utilities.TestBase;
 
@@ -14,6 +15,7 @@ public class purchaseItemPOMTest extends TestBase {
             System.out.println("Instance home of Homepage POM created");
             home.dismissWarning();
             System.out.println("Demo store warning dismissed");
+
             home.shopLink();
             System.out.println("Shop has been opened");
             home.addBeanieToCart();
@@ -43,6 +45,31 @@ public class purchaseItemPOMTest extends TestBase {
 
             cart.couponPresent();
             System.out.println("coupon applied correctly");
+            cart.getPrice();
+
+            cart.getShipping();
+
+            /* logging in */
+
+            loginPOM login = new loginPOM(driver);
+            login.myAccountLink();
+            login.emailBox();
+            login.passwordBox();
+            login.logIn();
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            login.logout();
+
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+
 
 
         }
