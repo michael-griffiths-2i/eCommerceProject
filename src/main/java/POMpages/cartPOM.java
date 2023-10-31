@@ -51,38 +51,35 @@ public class cartPOM {
 
 
     }
-    //check total
-    public void getPrice(){
+    // Check total
+    public void getPrice() {
         String totalRaw = driver.findElement(By.cssSelector(".cart-subtotal > td > .amount.woocommerce-Price-amount > bdi")).getText();
-        totalRaw = totalRaw.substring(1); //create substring totalRaw removing the first character
-        double total=parseDouble(totalRaw);
+        totalRaw = totalRaw.substring(1); // Create substring totalRaw removing the first character
+        double total = parseDouble(totalRaw);
         getDiscount(total);
-
     }
 
-    public void getDiscount(double totalPrice){
+    // ... Other methods ...
+
+    // Private method to get discount
+    private void getDiscount(double totalPrice) { //only called from getPrice so can be private to this class
         String totalDiscountRaw = driver.findElement(By.cssSelector(".cart-discount.coupon-edgewords > td > .amount.woocommerce-Price-amount")).getText();
-        totalDiscountRaw =totalDiscountRaw.substring(1); //create substring of discount removing the minus and currency
-        double totalDiscount =parseDouble(totalDiscountRaw);
-        System.out.println("Total Discount"+ totalDiscount);
-        //work out discount based on Price
-        double actualDiscount = totalPrice*0.15;
-        assertEquals(actualDiscount, totalDiscount,0.2); // Adjust the tolerance as needed
-
-
+        totalDiscountRaw = totalDiscountRaw.substring(1); // Create a substring of discount removing the minus and currency
+        double totalDiscount = parseDouble(totalDiscountRaw);
+        System.out.println("Total Discount" + totalDiscount);
+        // Work out discount based on Price
+        double actualDiscount = totalPrice * 0.15;
+        assertEquals(actualDiscount, totalDiscount, 0.2); // Adjust the tolerance as needed
     }
 
-
-
-    //check shipping
-    public void getShipping(){
+    // Private method to get shipping
+    public void getShipping() {
         String shippingTotalRaw = driver.findElement(By.cssSelector("ul#shipping_method  label")).getText();
-        shippingTotalRaw = shippingTotalRaw.substring(12);//start the shipping total after Flat rate: £
+        shippingTotalRaw = shippingTotalRaw.substring(12); // Start the shipping total after Flat rate: £
         double shippingTotal = parseDouble(shippingTotalRaw);
-        double expectedShippingTotal =3.95;
-        System.out.println("Shipping Total Raw "+shippingTotal);
-
-        assertEquals(expectedShippingTotal,shippingTotal,0.1);
+        double expectedShippingTotal = 3.95;
+        System.out.println("Shipping Total Raw " + shippingTotal);
+        assertEquals(expectedShippingTotal, shippingTotal, 0.1);
         System.out.println("Shipping Total is accurate");
     }
 
