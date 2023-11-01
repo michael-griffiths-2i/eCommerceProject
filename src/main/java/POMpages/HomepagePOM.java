@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utilities.TestBase;
 
 public class HomepagePOM {
 
@@ -19,10 +18,10 @@ public class HomepagePOM {
     //Locators
     @FindBy(linkText = "Dismiss")
 
-    WebElement dissmissLink;
+    WebElement dismissLink;
 
     public void dismissWarning(){
-        dissmissLink.click();
+        dismissLink.click();
 
     }
 
@@ -35,7 +34,7 @@ public class HomepagePOM {
     @FindBy(css = "a[aria-label='Add “Beanie” to your cart']")
     WebElement addBeanieToCart;
 
-    public void addBeanieToCart() {
+    public void addProductToCart() {
         addBeanieToCart.click();
     }
 

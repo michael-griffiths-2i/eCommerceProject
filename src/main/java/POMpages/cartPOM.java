@@ -53,7 +53,7 @@ public class cartPOM {
     }
     // Check total
     public void getPrice() {
-        String totalRaw = driver.findElement(By.cssSelector(".cart-subtotal > td > .amount.woocommerce-Price-amount > bdi")).getText();
+        String totalRaw = driver.findElement(By.cssSelector(".skip-link .screen-reader-text")).getText();
         totalRaw = totalRaw.substring(1); // Create substring totalRaw removing the first character
         double total = parseDouble(totalRaw);
         getDiscount(total);
@@ -82,8 +82,6 @@ public class cartPOM {
         assertEquals(expectedShippingTotal, shippingTotal, 0.1);
         System.out.println("Shipping Total is accurate");
     }
-
-
 
 
 }

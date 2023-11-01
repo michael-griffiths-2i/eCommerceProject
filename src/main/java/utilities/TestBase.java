@@ -1,9 +1,12 @@
 package utilities;
 
+import POMpages.HomepagePOM;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+
 public class TestBase {
     //set up the WebDriver which should be protected (requires org.openqa.selenium.WebDriver);
     protected WebDriver driver;
@@ -15,11 +18,14 @@ public class TestBase {
     void setUp(){
 
         driver = new ChromeDriver();
+
+
     }
 
     //setUp AfterEach (requires org.junit.jupiter.api.*)
     @AfterEach
     void tearDown(){
+
         driver.quit();
     }
 }
