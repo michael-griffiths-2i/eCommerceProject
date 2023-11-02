@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class receivedPOM {
     WebDriver driver;
@@ -34,17 +36,23 @@ public class receivedPOM {
         ordersLink.click();
     }
 
-    @FindBy(css="li.woocommerce-order-overview__order strong")
+    @FindBy(css = ".woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number > a")
     WebElement orderListNumber;
-    public void checkOrderNumber() {
+    public String checkOrderNumber() {
+        String orderNumber = orderListNumber.getText().substring(1);
+        System.out.println("Order Number: " + orderNumber);
+        return orderNumber;
     }
+    @FindBy(css ="tr:nth-of-type(1) > .woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number > a")
+    WebElement myOrdersOrderNumber;
+    public void compareOrderNumbers(String orderNumber){
+        String finalOrderRaw = myOrdersOrderNumber.getText();
+        String finalOrder= finalOrderRaw.substring(1);
+        System.out.println(orderNumber);
+        System.out.println(finalOrder);
+        assertEquals(orderNumber, finalOrder);
 
-
-    //            tag=woocommerce-order-overview__order order
-    //            My Account
-    //            Orders
-    //            css =.woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number > a
-
+    }
 
     //logout
 

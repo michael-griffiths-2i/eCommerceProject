@@ -22,6 +22,7 @@ public class HomepagePOM {
 
     public void dismissWarning(){
         dismissLink.click();
+        System.out.println("Demo store warning dismissed");
 
     }
 
@@ -29,19 +30,21 @@ public class HomepagePOM {
     WebElement shopLink;
     public void shopLink(){
         shopLink.click();
+        System.out.println("Shop has been opened");
     }
 
     @FindBy(css = "a[aria-label='Add “Beanie” to your cart']")
     WebElement addBeanieToCart;
-
     public void addProductToCart() {
         addBeanieToCart.click();
+        System.out.println("Beanie has been added to cart");
     }
 
     @FindBy(linkText ="Cart")
     WebElement viewCartLink;
     public void viewCartLink(){
         viewCartLink.click();
+        System.out.println("Viewing cart");
     }
 
 

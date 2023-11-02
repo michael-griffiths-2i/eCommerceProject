@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-
-import java.sql.SQLOutput;
-
 import static java.lang.Double.parseDouble;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -30,13 +26,16 @@ public class cartPOM {
     public void couponBox(){
         couponBox.click();
         couponBox.sendKeys("edgewords");
+        System.out.println("coupon box has been found");
     }
 
     //apply the coupon
     @FindBy(name="apply_coupon")
     WebElement applyCouponBtn;
     public void applyCouponBtn(){
+
         applyCouponBtn.click();
+        System.out.println("apply coupon button clicked");
     }
 
     //check for coupon applied successfully banner
@@ -48,7 +47,7 @@ public class cartPOM {
         String pageText = wholePost.getText();
 
         assertTrue(pageText.contains(textToFind), "Text not found: " + textToFind);
-
+        System.out.println("coupon applied correctly");
 
     }
     // Check total
