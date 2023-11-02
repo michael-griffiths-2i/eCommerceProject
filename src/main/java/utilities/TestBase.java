@@ -33,12 +33,15 @@ public class TestBase {
         received = new receivedPOM(driver);
 
 
+
+
+
     }
 
     //setUp AfterEach (requires org.junit.jupiter.api.*)
     @AfterEach
     void tearDown(){
-
+        received.logOut();
         driver.quit();
     }
 }

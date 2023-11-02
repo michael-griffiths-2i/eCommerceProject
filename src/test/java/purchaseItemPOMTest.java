@@ -7,14 +7,14 @@ public class purchaseItemPOMTest extends TestBase {
 
     private HomepagePOM home;
     private cartPOM cart;
-    private checkoutPOM checkout;
+    private checkoutPOM check;
     private loginPOM login;
     private receivedPOM received;
     @Test
     void firstTest() {
-
         home = new HomepagePOM(driver);
         home.dismissWarning();
+
         home.shopLink();
         home.addProductToCart();
 
@@ -55,7 +55,7 @@ public class purchaseItemPOMTest extends TestBase {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        login.logout();
+
 
         try {
             Thread.sleep(4000);
@@ -67,22 +67,17 @@ public class purchaseItemPOMTest extends TestBase {
 
         @Test
     void secondTest() {
-        // Your second test code here
-            driver.get(baseUrl);
-            System.out.println("Driver has got baseUrl");
-            home = new HomepagePOM(driver);
-            System.out.println("Instance home of Homepage POM created");
-            home.dismissWarning();
-            System.out.println("Demo store warning dismissed");
 
             /* logging in */
 
-            loginPOM login = new loginPOM(driver);
+            login = new loginPOM(driver);
             login.myAccountLink();
             login.emailBox();
             login.passwordBox();
             login.logIn();
 
+            home = new HomepagePOM(driver);
+            home.dismissWarning();
             home.shopLink();
             System.out.println("Shop has been opened");
 
@@ -90,7 +85,7 @@ public class purchaseItemPOMTest extends TestBase {
             System.out.println("Beanie has been added to cart");
 
             //click on checkout
-            checkoutPOM check = new checkoutPOM(driver);
+            check = new checkoutPOM(driver);
             check.clickCart();
             System.out.println("Cart has been opened");
 
@@ -132,7 +127,7 @@ public class purchaseItemPOMTest extends TestBase {
             received.clickOnOrders();
             received.compareOrderNumbers(orderNumber);
             received.clickOnAccount();
-            received.logOut();
+
     }
 }
 
