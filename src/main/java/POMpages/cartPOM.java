@@ -52,7 +52,8 @@ public class cartPOM {
     }
     // Check total
     public void getPrice() {
-        String totalRaw = driver.findElement(By.cssSelector(".skip-link .screen-reader-text")).getText();
+        System.out.println("Finding price");
+        String totalRaw = driver.findElement(By.cssSelector(".cart-subtotal > td > .amount.woocommerce-Price-amount > bdi")).getText();
         totalRaw = totalRaw.substring(1); // Create substring totalRaw removing the first character
         double total = parseDouble(totalRaw);
         getDiscount(total);

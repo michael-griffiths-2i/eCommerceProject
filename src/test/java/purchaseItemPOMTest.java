@@ -6,6 +6,7 @@ import utilities.TestBase;
 public class purchaseItemPOMTest extends TestBase {
 
 
+    @Test
     void firstTest() {
         //could go into before each
         driver.get(baseUrl);

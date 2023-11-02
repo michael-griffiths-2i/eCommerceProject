@@ -1,6 +1,6 @@
 package utilities;
 
-import POMpages.HomepagePOM;
+import POMpages.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class TestBase {
+    private HomepagePOM home;
+    private loginPOM login;
+    private checkoutPOM checkout;
+    private receivedPOM received;
+    private cartPOM cart;
+
     //set up the WebDriver which should be protected (requires org.openqa.selenium.WebDriver);
     protected WebDriver driver;
     //set up the baseUrl which should be protected
@@ -18,6 +24,13 @@ public class TestBase {
     void setUp(){
 
         driver = new ChromeDriver();
+        driver.get(baseUrl);
+
+        home = new HomepagePOM(driver);
+        login = new loginPOM(driver);
+        checkout = new checkoutPOM(driver);
+        cart = new cartPOM(driver);
+        received = new receivedPOM(driver);
 
 
     }
