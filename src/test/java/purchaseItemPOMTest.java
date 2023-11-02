@@ -5,12 +5,15 @@ import utilities.TestBase;
 
 public class purchaseItemPOMTest extends TestBase {
 
-
+    private HomepagePOM home;
+    private cartPOM cart;
+    private checkoutPOM checkout;
+    private loginPOM login;
+    private receivedPOM received;
     @Test
     void firstTest() {
-        //could go into before each
-        driver.get(baseUrl);
-        HomepagePOM home = new HomepagePOM(driver);
+
+        home = new HomepagePOM(driver);
         home.dismissWarning();
         home.shopLink();
         home.addProductToCart();
@@ -25,7 +28,7 @@ public class purchaseItemPOMTest extends TestBase {
 
         //applying coupon
 
-        cartPOM cart = new cartPOM(driver);
+        cart = new cartPOM(driver);
 
         cart.couponBox();
         cart.applyCouponBtn();
@@ -42,7 +45,7 @@ public class purchaseItemPOMTest extends TestBase {
 
         /* logging in */
 
-        loginPOM login = new loginPOM(driver);
+        login = new loginPOM(driver);
         login.myAccountLink();
         login.emailBox();
         login.passwordBox();
@@ -67,7 +70,7 @@ public class purchaseItemPOMTest extends TestBase {
         // Your second test code here
             driver.get(baseUrl);
             System.out.println("Driver has got baseUrl");
-            HomepagePOM home = new HomepagePOM(driver);
+            home = new HomepagePOM(driver);
             System.out.println("Instance home of Homepage POM created");
             home.dismissWarning();
             System.out.println("Demo store warning dismissed");
@@ -112,7 +115,7 @@ public class purchaseItemPOMTest extends TestBase {
             //end of checkout
 
             //start of order received
-            receivedPOM cart= new receivedPOM(driver);
+            received= new receivedPOM(driver);
 
             try {
                 Thread.sleep(3000);
@@ -122,26 +125,14 @@ public class purchaseItemPOMTest extends TestBase {
             }
 
             //cart.getOrderNumber();
-            cart.clickOnAccount();
-            cart.clickOnOrders();
-            String orderNumber = cart.checkOrderNumber();
-            cart.clickOnAccount();
-            cart.clickOnOrders();
-            cart.compareOrderNumbers(orderNumber);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            received.clickOnAccount();
+            received.clickOnOrders();
+            String orderNumber = received.checkOrderNumber();
+            received.clickOnAccount();
+            received.clickOnOrders();
+            received.compareOrderNumbers(orderNumber);
+            received.clickOnAccount();
+            received.logOut();
     }
 }
 

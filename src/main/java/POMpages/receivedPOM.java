@@ -56,7 +56,11 @@ public class receivedPOM {
 
     //logout
 
-
+    @FindBy(linkText="Logout")
+    WebElement logOutLink;
+    public void logOut() {
+        logOutLink.click();
+    }
 
 
 }
