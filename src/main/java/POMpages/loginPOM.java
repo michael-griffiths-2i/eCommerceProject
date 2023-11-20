@@ -25,14 +25,14 @@ public class loginPOM {
     WebElement emailBox;
     public void emailBox(){
         emailBox.click();
-        emailBox.sendKeys("mikeyg77@gmail.com");
+        emailBox.sendKeys("something@gmail.com"); /*This must be changed to a proper login that is manually setup*/
     }
     //input password
     @FindBy(name="password")
     WebElement passwordBox;
     public void passwordBox(){
         passwordBox.click();
-        passwordBox.sendKeys("Donotigiveout!");
+        passwordBox.sendKeys("Donotigiveout!"); /*This must be changed to a proper password  that is manually setup*/
     }
 
     //click login
