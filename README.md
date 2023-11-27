@@ -1,4 +1,5 @@
 E-commerce Final Project Overview 🎉
+
 This project is an end-to-end testing of an e-commerce website using Selenium WebDriver and JUnit. It consists of two test cases that cover different scenarios of purchasing items from the website. The project is written in Java and uses Maven as the build automation tool.
 
 Test Case 1 🛒
