@@ -5,6 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,9 +29,11 @@ public class receivedPOM {
         //store the orderNumber
     }
 
-    @FindBy(linkText="My account")
-    WebElement accountLink;
     public void clickOnAccount() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".blockUI.blockOverlay")));
+        WebElement accountLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("My account")));
         accountLink.click();
     }
     @FindBy(linkText="Orders")
@@ -58,7 +64,7 @@ public class receivedPOM {
 
     @FindBy(linkText="Logout")
     WebElement logOutLink;
-    public void logOut() {
+    public void mylogOut() {
         logOutLink.click();
     }
 

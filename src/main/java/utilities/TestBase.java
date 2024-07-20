@@ -43,7 +43,7 @@ public class TestBase {
     //setUp AfterEach (requires org.junit.jupiter.api.*)
     @AfterEach
     void tearDown(){
-        received.logOut();
+        //received.logOut();
         driver.quit();
     }
 }

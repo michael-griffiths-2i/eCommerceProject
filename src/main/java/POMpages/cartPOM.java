@@ -5,6 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 import static java.lang.Double.parseDouble;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,9 +26,16 @@ public class cartPOM {
     //Locators
 
     //find the textbox
-    @FindBy(id="coupon_code")
-    WebElement couponBox;
+//    @FindBy(id="coupon_code")
+//    WebElement couponBox;
     public void couponBox(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebElement couponBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("coupon_code")));
         couponBox.click();
         couponBox.sendKeys("edgewords");
         System.out.println("coupon box has been found");
@@ -39,19 +51,22 @@ public class cartPOM {
     }
 
     //check for coupon applied successfully banner
-    @FindBy(id="post-5")
-    WebElement wholePost;
 
     public void couponPresent(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebElement wholePost = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("woocommerce-message")));
+
         String textToFind = "Coupon code applied successfully.";
         String pageText = wholePost.getText();
+        //System.out.println(pageText);
 
         assertTrue(pageText.contains(textToFind), "Text not found: " + textToFind);
-        System.out.println("coupon applied correctly");
+
 
     }
     // Check total
     public void getPrice() {
+
         System.out.println("Finding price");
         String totalRaw = driver.findElement(By.cssSelector(".cart-subtotal > td > .amount.woocommerce-Price-amount > bdi")).getText();
         totalRaw = totalRaw.substring(1); // Create substring totalRaw removing the first character
@@ -62,7 +77,14 @@ public class cartPOM {
     // ... Other methods ...
 
     // Private method to get discount
-    private void getDiscount(double totalPrice) { //only called from getPrice so can be private to this class
+    private void getDiscount(double totalPrice) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }//only called from getPrice so can be private to this class
+
+
         String totalDiscountRaw = driver.findElement(By.cssSelector(".cart-discount.coupon-edgewords > td > .amount.woocommerce-Price-amount")).getText();
         totalDiscountRaw = totalDiscountRaw.substring(1); // Create a substring of discount removing the minus and currency
         double totalDiscount = parseDouble(totalDiscountRaw);

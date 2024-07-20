@@ -1,9 +1,15 @@
 package POMpages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.sql.SQLOutput;
+import java.time.Duration;
 
 
 public class checkoutPOM {
@@ -22,10 +28,10 @@ public class checkoutPOM {
     }
 
 
-    @FindBy(linkText = "Checkout")
-    WebElement checkoutLink;
-    public void openPage() {
 
+    public void openPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+           WebElement checkoutLink = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Checkout")));
         checkoutLink.click();
         System.out.println("First Name Entered");
     }
@@ -103,9 +109,15 @@ public class checkoutPOM {
         System.out.println("Email address entered");
     }
 
-    @FindBy(id = "place_order")
-    WebElement placeOrderBtn;
+
     public void placeOrder() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".blockUI.blockOverlay")));
+
+        WebElement placeOrderBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("place_order")));
+        System.out.println("waiting to be clickable");
         placeOrderBtn.click();
         System.out.println("Place Order");
 
