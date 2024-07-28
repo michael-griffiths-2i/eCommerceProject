@@ -100,9 +100,11 @@ public class checkoutPOM {
         System.out.println("Billing Postcode Entered");
     }
 
-    @FindBy(id = "billing_email")
-    WebElement emailBox;
+
     public void emailAddress() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
+        WebElement emailBox = wait.until(ExpectedConditions.elementToBeClickable(By.id("billing_email")));
         emailBox.click();
         emailBox.clear();
         emailBox.sendKeys("mickeymouse@hotmail.com");
