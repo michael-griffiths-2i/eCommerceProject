@@ -1,8 +1,36 @@
-name: 'BrowserStack Env Setup'
-on: [push]
-uses: 'browserstack/github-actions/setup-env@master'
-with:
-  username: ${{ secrets.BROWSERSTACK_USERNAME }}
-  access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-  build-name: 'BUILD_INFO'
-  project-name: 'Edgewords purchasing'
+name: BrowserStack Tests
+
+on:
+  push:
+    branches:
+      - main  # Specify the branch you want to trigger the workflow on
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Build your web application and start the server
+      # Add your build steps here
+
+      - name: Set up BrowserStack environment
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username: ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          buildName: browserstack-build-1
+          projectName: BrowserStack Sample
+
+      - name: Set up BrowserStack Local tunnel
+        uses: browserstack/github-actions/setup-local@master
+
+      # Run your test scripts
+      # Add your test execution steps here
+
+      - name: Terminate BrowserStack Local tunnel
+        uses: browserstack/github-actions/setup-local@master
+        with:
+          action: terminate
