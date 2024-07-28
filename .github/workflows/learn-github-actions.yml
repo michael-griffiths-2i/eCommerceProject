@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Build your web application and start the server
       # Add your build steps here
@@ -21,14 +21,9 @@ jobs:
         with:
           username: ${{ secrets.BROWSERSTACK_USERNAME }}
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-          buildName: browserstack-build-1
-          projectName: BrowserStack Sample
+          build-name: browserstack-build-1
+          project-name: BrowserStack Sample
 
-      - name: Set up BrowserStack Local tunnel
-        uses: browserstack/github-actions/setup-local@master
-
-      # Run your test scripts
-      # Add your test execution steps here
 
       - name: Terminate BrowserStack Local tunnel
         uses: browserstack/github-actions/setup-local@master
