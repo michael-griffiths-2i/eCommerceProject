@@ -3,7 +3,7 @@ name: BrowserStack Tests
 on:
   push:
     branches:
-      - main  # Specify the branch you want to trigger the workflow on
+      - master  # Specify the branch you want to trigger the workflow on
 
 jobs:
   build:
