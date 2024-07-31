@@ -16,6 +16,8 @@ public class TestBase {
     private receivedPOM received;
     private cartPOM cart;
 
+
+
     //set up the WebDriver which should be protected (requires org.openqa.selenium.WebDriver);
     protected WebDriver driver;
     //set up the baseUrl which should be protected

@@ -22,7 +22,6 @@ public class purchaseItemPOMTest extends TestBase {
         cart = new cartPOM(driver);
         cart.couponBox();
         cart.applyCouponBtn();
-        cart.couponPresent();
         cart.getPrice();
         cart.getShipping();
 

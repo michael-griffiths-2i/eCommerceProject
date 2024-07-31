@@ -47,12 +47,6 @@ public class HomepagePOM {
 
         addBeanieToCart.click();
         System.out.println("Beanie has been added to cart");
-        //hate that I'm using a sleep here but would like to find a logical replacement in a wait to make it work properly.
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
     }
 

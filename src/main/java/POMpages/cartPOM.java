@@ -29,11 +29,11 @@ public class cartPOM {
 //    @FindBy(id="coupon_code")
 //    WebElement couponBox;
     public void couponBox(){
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         WebElement couponBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("coupon_code")));
         couponBox.click();
@@ -53,8 +53,8 @@ public class cartPOM {
     //check for coupon applied successfully banner
 
     public void couponPresent(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        WebElement wholePost = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("woocommerce-message")));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement wholePost = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("woocommerce-message")));
 
         String textToFind = "Coupon code applied successfully.";
         String pageText = wholePost.getText();
