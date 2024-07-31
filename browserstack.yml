@@ -13,10 +13,3 @@ buildName: browserstack-build-1
 projectName: BrowserStack Sample
 selfHeal: true
 
-name: BrowserStack Actions
-uses: browserstack/github-actions@v1.0.1
-with:
-  username: ${{ secrets.BROWSERSTACK_USERNAME }}
-  access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-  build-name: BUILD_INFO
-  project-name: REPO_NAME
