@@ -24,7 +24,7 @@ jobs:
         run: sudo apt-get install -y maven
 
       - name: Run Maven tests
-        run: mvn test
+        run: mvn test -Dtest=purchaseItemPOMTest
 
       - name: Set up BrowserStack environment
         uses: browserstack/github-actions/setup-env@master

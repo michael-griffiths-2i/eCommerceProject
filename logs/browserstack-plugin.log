@@ -140,3 +140,15 @@
 22:04:49.321 [ApplicationImpl pooled thread 173] INFO  com.browserstack.utils.Helpers - C:/Users/mickg/.m2/repository/com/browserstack/browserstack-java-sdk/1.20.0/browserstack-java-sdk-1.20.0.jar
 22:04:49.321 [ApplicationImpl pooled thread 173] INFO  c.b.l.BrowserStackRunExtension - Agent path: C:/Users/mickg/.m2/repository/com/browserstack/browserstack-java-sdk/1.20.0/browserstack-java-sdk-1.20.0.jar
 22:04:49.321 [ApplicationImpl pooled thread 173] INFO  c.b.l.BrowserStackRunExtension - Plugin version: v1.1.4
+19:44:51.621 [ApplicationImpl pooled thread 30] INFO  c.b.l.BrowserStackRunExtension - maven
+19:44:51.623 [ApplicationImpl pooled thread 30] INFO  com.browserstack.utils.Helpers - null
+19:46:08.365 [ApplicationImpl pooled thread 35] INFO  c.b.l.BrowserStackRunExtension - junit
+19:46:08.365 [ApplicationImpl pooled thread 35] INFO  com.browserstack.utils.Helpers - null
+19:46:08.366 [ApplicationImpl pooled thread 35] INFO  com.browserstack.utils.Helpers - C:/Users/mickg/.m2/repository/com/browserstack/browserstack-java-sdk/1.20.0/browserstack-java-sdk-1.20.0.jar
+19:46:08.366 [ApplicationImpl pooled thread 35] INFO  c.b.l.BrowserStackRunExtension - Agent path: C:/Users/mickg/.m2/repository/com/browserstack/browserstack-java-sdk/1.20.0/browserstack-java-sdk-1.20.0.jar
+19:46:08.366 [ApplicationImpl pooled thread 35] INFO  c.b.l.BrowserStackRunExtension - Plugin version: v1.1.4
+19:48:04.321 [ApplicationImpl pooled thread 33] INFO  c.b.l.BrowserStackRunExtension - junit
+19:48:04.321 [ApplicationImpl pooled thread 33] INFO  com.browserstack.utils.Helpers - null
+19:48:04.322 [ApplicationImpl pooled thread 33] INFO  com.browserstack.utils.Helpers - C:/Users/mickg/.m2/repository/com/browserstack/browserstack-java-sdk/1.20.0/browserstack-java-sdk-1.20.0.jar
+19:48:04.322 [ApplicationImpl pooled thread 33] INFO  c.b.l.BrowserStackRunExtension - Agent path: C:/Users/mickg/.m2/repository/com/browserstack/browserstack-java-sdk/1.20.0/browserstack-java-sdk-1.20.0.jar
+19:48:04.322 [ApplicationImpl pooled thread 33] INFO  c.b.l.BrowserStackRunExtension - Plugin version: v1.1.4
