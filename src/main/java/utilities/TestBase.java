@@ -27,7 +27,7 @@ public class TestBase {
     @BeforeEach
     void setUp(){
 
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
         driver.get(baseUrl);
 
         home = new HomepagePOM(driver);

@@ -546,3 +546,26 @@
 20:13:43.262 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is junit5. We currently support frameworks testng, cucumber-testng & serenity
 20:14:50.410 [Thread-0] INFO  c.browserstack.utils.UtilityMethods - View build on BrowserStack dashboard: https://automate.browserstack.com/dashboard/v2/builds/7e9fd90cddbd139d6c65da3a83b0fb52df99af1f
 20:14:50.410 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO
+20:43:06.923 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.14.1
+20:43:06.927 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 
+20:43:07.200 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+20:43:07.201 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\mickg\IdeaProjects\eCommerce Project\browserstack.yml
+20:43:07.834 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to junit5
+20:43:11.507 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is junit5. We currently support frameworks testng, cucumber-testng & serenity
+20:43:12.248 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+20:43:13.309 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting BrowserStack Local......
+20:43:18.519 [main] INFO  com.browserstack.LocalFactory - BrowserStack Local Started Successfully.
+20:43:19.849 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+20:43:19.854 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\mickg\IdeaProjects\eCommerce Project\browserstack.yml
+20:43:19.851 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+20:43:19.852 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+20:43:19.856 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\mickg\IdeaProjects\eCommerce Project\browserstack.yml
+20:43:19.856 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : C:\Users\mickg\IdeaProjects\eCommerce Project\browserstack.yml
+20:43:23.324 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+20:43:23.343 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+20:43:23.363 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+20:43:23.422 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is junit5. We currently support frameworks testng, cucumber-testng & serenity
+20:43:23.439 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is junit5. We currently support frameworks testng, cucumber-testng & serenity
+20:43:23.462 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is junit5. We currently support frameworks testng, cucumber-testng & serenity
+20:44:56.382 [Thread-0] INFO  c.browserstack.utils.UtilityMethods - View build on BrowserStack dashboard: https://automate.browserstack.com/dashboard/v2/builds/378450268b3c9c3bbd90bd7495982b07dbe3a51a
+20:44:56.382 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO
