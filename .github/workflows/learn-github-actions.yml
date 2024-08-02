@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Set up Firefox
+        uses: browser-actions/setup-firefox@v1
+
+      - name: Verify Firefox version
+        run: firefox --version
 
       - name: Set up Java
         uses: actions/setup-java@v2
