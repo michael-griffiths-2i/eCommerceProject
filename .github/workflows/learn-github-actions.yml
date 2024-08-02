@@ -3,7 +3,7 @@ name: BrowserStack Tests
 on:
   push:
     branches:
-      - master  # Specify the branch you want to trigger the workflow on
+      - master
 
 jobs:
   build:
@@ -31,7 +31,6 @@ jobs:
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           build-name: browserstack-build-1
           project-name: BrowserStack Sample
-
 
       - name: Terminate BrowserStack Local tunnel
         uses: browserstack/github-actions/setup-local@master
