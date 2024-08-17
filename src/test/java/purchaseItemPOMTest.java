@@ -18,7 +18,10 @@ public class purchaseItemPOMTest extends TestBase {
         home.dismissWarning();
         home.shopLink();
         home.addProductToCart();
+        home.checkPrice();
         home.clickViewCartLink(driver);
+
+
         cart = new cartPOM(driver);
         cart.couponBox();
         cart.applyCouponBtn();

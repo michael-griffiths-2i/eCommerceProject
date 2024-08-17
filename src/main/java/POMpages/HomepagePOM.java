@@ -10,6 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static java.lang.Double.parseDouble;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class HomepagePOM {
 
     WebDriver driver;
@@ -42,11 +45,41 @@ public class HomepagePOM {
 
 
     public void addProductToCart() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         WebElement addBeanieToCart = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[aria-label='Add “Beanie” to your cart']")));
 
         addBeanieToCart.click();
         System.out.println("Beanie has been added to cart");
+
+
+    }
+
+    public void checkPrice() {
+
+        System.out.println("Finding price");
+
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        boolean isTextPresent = wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                By.cssSelector(".woocommerce-Price-amount.amount"), "18"));
+
+        if(isTextPresent){
+            WebElement priceInCart = driver.findElement(By.cssSelector(".woocommerce-Price-amount.amount"));
+            String cartAmount =priceInCart.getText();
+            cartAmount = cartAmount.substring(1); // Create substring totalRaw removing the first character
+            System.out.println("Cart amount is "+cartAmount);
+        }
+        else {
+            System.out.println("The expected price text was not found.");
+        }
+
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+//        //WebElement priceInCart = wait.until(ExpectedConditions.textToBePresentInElement(By.cssSelector(".woocommerce-Price-amount.amount")));
+//        WebElement priceInCart = driver.findElement(By.cssSelector(".woocommerce-Price-amount.amount"));
+//        wait.until(ExpectedConditions.textToBePresentInElement(priceInCart, "18"));
+//        String cartAmount =priceInCart.getText();
+//        cartAmount = cartAmount.substring(1); // Create substring totalRaw removing the first character
+//        System.out.println("Cart amount is "+cartAmount);
 
     }
 
