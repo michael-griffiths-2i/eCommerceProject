@@ -13,11 +13,11 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class receivedPOM {
+public class OrderPage {
     WebDriver driver;
 
     //constructor
-    public receivedPOM(WebDriver driver) {
+    public OrderPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }

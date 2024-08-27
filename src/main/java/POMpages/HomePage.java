@@ -9,26 +9,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import static java.lang.Double.parseDouble;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-public class HomepagePOM {
+public class HomePage {
 
     WebDriver driver;
-
     //constructor
-    public HomepagePOM(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }
 
     //Locators
-    @FindBy(linkText = "Dismiss")
+    @FindBy(linkText = "Dismiss") WebElement dismissLink;
 
-    WebElement dismissLink;
-
-    public void dismissWarning(){
+    public void clickDismissDemoWarning(){
 
         dismissLink.click();
         System.out.println("Demo store warning dismissed");
@@ -37,7 +30,7 @@ public class HomepagePOM {
 
     @FindBy(linkText = "Shop")
     WebElement shopLink;
-    public void shopLink(){
+    public void clickShopLink(){
 
         shopLink.click();
         System.out.println("Shop has been opened");
@@ -84,7 +77,7 @@ public class HomepagePOM {
     }
 
 
-    public void clickViewCartLink(WebDriver driver){
+    public void clickViewCartLink(){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement viewCartLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Cart")));

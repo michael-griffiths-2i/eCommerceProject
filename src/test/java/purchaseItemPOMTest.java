@@ -1,34 +1,33 @@
 import POMpages.*;
 import org.junit.jupiter.api.Test;
-import utilities.TestBase;
 
 
 public class purchaseItemPOMTest extends TestBase {
 
-    private HomepagePOM home;
-    private cartPOM cart;
-    private checkoutPOM check;
-    private loginPOM login;
-    private receivedPOM received;
+    private HomePage home;
+    private CartPage cart;
+    private launchCheckoutPage check;
+    private LoginPage login;
+    private OrderPage received;
     @Test
     void firstTest() {
 
 
-        home = new HomepagePOM(driver);
-        home.dismissWarning();
-        home.shopLink();
+        home = new HomePage(driver);
+        home.clickDismissDemoWarning();
+        home.clickShopLink();
         home.addProductToCart();
         home.checkPrice();
-        home.clickViewCartLink(driver);
+        home.clickViewCartLink();
 
 
-        cart = new cartPOM(driver);
+        cart = new CartPage(driver);
         cart.couponBox();
         cart.applyCouponBtn();
         cart.getPrice();
         cart.getShipping();
 
-        login = new loginPOM(driver);
+        login = new LoginPage(driver);
         login.myAccountLink();
         login.emailBox();
         login.passwordBox();
@@ -41,37 +40,37 @@ public class purchaseItemPOMTest extends TestBase {
     void secondTest() {
 
             /* logging in */
-            login = new loginPOM(driver);
+            login = new LoginPage(driver);
             login.myAccountLink();
             login.emailBox();
             login.passwordBox();
             login.logIn();
 
-            home = new HomepagePOM(driver);
-            home.dismissWarning();
-            home.shopLink();
+            home = new HomePage(driver);
+            home.clickDismissDemoWarning();
+            home.clickShopLink();
             home.addProductToCart();
 
             //click on checkout
-            check = new checkoutPOM(driver);
+            check = new launchCheckoutPage(driver);
             check.clickCart();
 
 
             //start of checkout
-            check.openPage();
-            check.billingFirstNameCheck();
-            check.billingLastName();
-            check.billingCountry();
-            check.billingAddress1();
-            check.billingCity();
-            check.billingPhone();
-            check.billingPostcode();
-            check.emailAddress();
+            check.clickCheckoutLink();
+            check.enterFirstName();
+            check.enterLastName();
+            check.chooseBillingCountry();
+            check.enterBillingAddress();
+            check.enterBillingCity();
+            check.enterPhoneNumber();
+            check.enterPostcode();
+            check.enterEmail();
             check.placeOrder();
             //end of checkout
 
             //start of order received
-            received= new receivedPOM(driver);
+            received= new OrderPage(driver);
 
 
             //cart.getOrderNumber();

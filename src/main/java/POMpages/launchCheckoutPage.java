@@ -8,14 +8,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.SQLOutput;
 import java.time.Duration;
 
 
-public class checkoutPOM {
+public class launchCheckoutPage {
     WebDriver driver;
 
-    public checkoutPOM(WebDriver driver) {
+    public launchCheckoutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }
@@ -29,7 +28,7 @@ public class checkoutPOM {
 
 
 
-    public void openPage() {
+    public void clickCheckoutLink() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
            WebElement checkoutLink = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Checkout")));
         checkoutLink.click();
@@ -38,7 +37,7 @@ public class checkoutPOM {
 
     @FindBy(id = "billing_first_name")
     WebElement firstNameBox;
-    public void billingFirstNameCheck() {
+    public void enterFirstName() {
         firstNameBox.click();
         firstNameBox.clear();
         firstNameBox.sendKeys("Mickey");
@@ -48,7 +47,7 @@ public class checkoutPOM {
 
     @FindBy(id = "billing_last_name")
     WebElement lastNameBox;
-    public void billingLastName() {
+    public void enterLastName() {
 
         lastNameBox.click();
         lastNameBox.clear();
@@ -58,7 +57,7 @@ public class checkoutPOM {
 
     @FindBy(id = "select2-billing_country-container")
     WebElement billingCountry;
-    public void billingCountry() {
+    public void chooseBillingCountry() {
 
         billingCountry.click();
         System.out.println("Billing Country chosen");
@@ -66,7 +65,7 @@ public class checkoutPOM {
 
     @FindBy(id = "billing_address_1")
     WebElement billingAddressBox;
-    public void billingAddress1() {
+    public void enterBillingAddress() {
         billingAddressBox.click();
         billingAddressBox.clear();
         billingAddressBox.sendKeys("123 Main Road");
@@ -75,7 +74,7 @@ public class checkoutPOM {
 
     @FindBy(id = "billing_city")
     WebElement billingCityBox;
-    public void billingCity() {
+    public void enterBillingCity() {
         billingCityBox.click();
         billingCityBox.clear();
         billingCityBox.sendKeys("Glasgow");
@@ -83,7 +82,7 @@ public class checkoutPOM {
     }
     @FindBy(id = "billing_phone")
     WebElement billingPhoneBox;
-    public void billingPhone() {
+    public void enterPhoneNumber() {
         billingPhoneBox.click();
         billingPhoneBox.clear();
         billingPhoneBox.sendKeys("0141 432 1234");
@@ -93,7 +92,7 @@ public class checkoutPOM {
 
     @FindBy(id = "billing_postcode")
     WebElement billingPostcode;
-    public void billingPostcode() {
+    public void enterPostcode() {
         billingPostcode.click();
         billingPostcode.clear();
         billingPostcode.sendKeys("G11 3XY");
@@ -101,7 +100,7 @@ public class checkoutPOM {
     }
 
 
-    public void emailAddress() {
+    public void enterEmail() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
         WebElement emailBox = wait.until(ExpectedConditions.elementToBeClickable(By.id("billing_email")));

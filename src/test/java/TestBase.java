@@ -1,20 +1,16 @@
-package utilities;
-
 import POMpages.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 
 public class TestBase {
-    private HomepagePOM home;
-    private loginPOM login;
-    private checkoutPOM checkout;
-    private receivedPOM received;
-    private cartPOM cart;
+    private HomePage home;
+    private LoginPage login;
+    private launchCheckoutPage checkout;
+    private OrderPage received;
+    private CartPage cart;
 
     //set up the WebDriver which should be protected (requires org.openqa.selenium.WebDriver);
     protected WebDriver driver;
@@ -28,11 +24,11 @@ public class TestBase {
         driver = new FirefoxDriver();
         driver.get(baseUrl);
 
-        home = new HomepagePOM(driver);
-        login = new loginPOM(driver);
-        checkout = new checkoutPOM(driver);
-        cart = new cartPOM(driver);
-        received = new receivedPOM(driver);
+        home = new HomePage(driver);
+        login = new LoginPage(driver);
+        checkout = new launchCheckoutPage(driver);
+        cart = new CartPage(driver);
+        received = new OrderPage(driver);
 
 
 

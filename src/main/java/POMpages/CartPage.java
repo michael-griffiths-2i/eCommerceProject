@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class cartPOM {
+public class CartPage {
     WebDriver driver;
 
     //constructor
-    public cartPOM(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }
