@@ -4,15 +4,12 @@ import org.junit.jupiter.api.Test;
 
 public class purchaseItemPOMTest extends TestBase {
 
-    private HomePage home;
-    private CartPage cart;
-    private launchCheckoutPage check;
-    private LoginPage login;
-    private OrderPage received;
     @Test
     void firstTest() {
-
-
+        /**
+         * Initializes the HomePage and performs a series of actions.
+         * @param driver WebDriver instance
+         */
         home = new HomePage(driver);
         home.clickDismissDemoWarning();
         home.clickShopLink();
@@ -20,7 +17,10 @@ public class purchaseItemPOMTest extends TestBase {
         home.checkPrice();
         home.clickViewCartLink();
 
-
+        /**
+         * Initializes the HomePage and performs a series of actions.
+         * @param driver WebDriver instance
+         */
         cart = new CartPage(driver);
         cart.couponBox();
         cart.applyCouponBtn();
@@ -32,8 +32,6 @@ public class purchaseItemPOMTest extends TestBase {
         login.emailBox();
         login.passwordBox();
         login.logIn();
-
-
     }
 
     @Test
@@ -51,28 +49,23 @@ public class purchaseItemPOMTest extends TestBase {
             home.clickShopLink();
             home.addProductToCart();
 
-            //click on checkout
-            check = new launchCheckoutPage(driver);
-            check.clickCart();
-
-
+            checkOut = new LaunchCheckoutPage(driver);
+            checkOut.clickCart();
             //start of checkout
-            check.clickCheckoutLink();
-            check.enterFirstName();
-            check.enterLastName();
-            check.chooseBillingCountry();
-            check.enterBillingAddress();
-            check.enterBillingCity();
-            check.enterPhoneNumber();
-            check.enterPostcode();
-            check.enterEmail();
-            check.placeOrder();
+            checkOut.clickCheckoutLink();
+            checkOut.enterFirstName();
+            checkOut.enterLastName();
+            checkOut.chooseBillingCountry();
+            checkOut.enterBillingAddress();
+            checkOut.enterBillingCity();
+            checkOut.enterPhoneNumber();
+            checkOut.enterPostcode();
+            checkOut.enterEmail();
+            checkOut.placeOrder();
             //end of checkout
 
             //start of order received
             received= new OrderPage(driver);
-
-
             //cart.getOrderNumber();
             received.clickOnAccount();
             received.clickOnOrders();

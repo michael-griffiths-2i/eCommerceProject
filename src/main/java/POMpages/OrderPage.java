@@ -7,28 +7,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class OrderPage {
     WebDriver driver;
-
     //constructor
     public OrderPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }
-
-    public void getOrderNumber() {
-        String order = driver.findElement(By.cssSelector(".beta site-title")).getText();
-
-        System.out.println(order);
-        //store the orderNumber
-    }
-
     public void clickOnAccount() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
@@ -60,13 +48,10 @@ public class OrderPage {
 
     }
 
-    //logout
-
     @FindBy(linkText="Logout")
     WebElement logOutLink;
     public void mylogOut() {
         logOutLink.click();
     }
-
 
 }

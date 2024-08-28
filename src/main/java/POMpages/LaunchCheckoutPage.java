@@ -7,26 +7,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
-
-public class launchCheckoutPage {
+public class LaunchCheckoutPage {
     WebDriver driver;
 
-    public launchCheckoutPage(WebDriver driver) {
+    public LaunchCheckoutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }
-
 
     @FindBy(id = "menu-item-44")
     WebElement cartLink;
     public void clickCart() {
         cartLink.click();
     }
-
-
 
     public void clickCheckoutLink() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -43,7 +38,6 @@ public class launchCheckoutPage {
         firstNameBox.sendKeys("Mickey");
         System.out.println("First Name Entered");
     }
-
 
     @FindBy(id = "billing_last_name")
     WebElement lastNameBox;
@@ -99,7 +93,6 @@ public class launchCheckoutPage {
         System.out.println("Billing Postcode Entered");
     }
 
-
     public void enterEmail() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
@@ -110,19 +103,15 @@ public class launchCheckoutPage {
         System.out.println("Email address entered");
     }
 
-
     public void placeOrder() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".blockUI.blockOverlay")));
-
         WebElement placeOrderBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("place_order")));
         System.out.println("waiting to be clickable");
         placeOrderBtn.click();
         System.out.println("Place Order");
 
     }
-
-
 }
