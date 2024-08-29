@@ -29,7 +29,7 @@ public class purchaseItemPOMTest extends TestBase {
 
         login = new LoginPage(driver);
         login.myAccountLink();
-        login.emailBox();
+        login.emailBox(EMAIL_ADDRESS);
         login.passwordBox();
         login.logIn();
     }
@@ -40,7 +40,7 @@ public class purchaseItemPOMTest extends TestBase {
             /* logging in */
             login = new LoginPage(driver);
             login.myAccountLink();
-            login.emailBox();
+            login.emailBox(EMAIL_ADDRESS);
             login.passwordBox();
             login.logIn();
 
@@ -49,18 +49,18 @@ public class purchaseItemPOMTest extends TestBase {
             home.clickShopLink();
             home.addProductToCart();
 
-            checkOut = new LaunchCheckoutPage(driver);
+            checkOut = new CheckoutPage(driver);
             checkOut.clickCart();
             //start of checkout
             checkOut.clickCheckoutLink();
-            checkOut.enterFirstName();
-            checkOut.enterLastName();
+            checkOut.enterFirstName(FIRST_NAME);
+            checkOut.enterLastName(LAST_NAME);
             checkOut.chooseBillingCountry();
-            checkOut.enterBillingAddress();
-            checkOut.enterBillingCity();
-            checkOut.enterPhoneNumber();
-            checkOut.enterPostcode();
-            checkOut.enterEmail();
+            checkOut.enterBillingAddress(BILLING_ADDRESS);
+            checkOut.enterBillingCity(CITY);
+            checkOut.enterPhoneNumber(PHONE_NUMBER);
+            checkOut.enterPostcode(POSTCODE);
+            checkOut.enterEmail(EMAIL_ADDRESS);
             checkOut.placeOrder();
             //end of checkout
 

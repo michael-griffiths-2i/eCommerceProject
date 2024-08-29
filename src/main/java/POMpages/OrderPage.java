@@ -12,7 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrderPage {
     WebDriver driver;
-    //constructor
+
+    @FindBy(linkText="Orders")      WebElement ordersLink;
+    @FindBy(css = ".woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number > a")                       WebElement orderListNumber;
+    @FindBy(css ="tr:nth-of-type(1) > .woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number > a")    WebElement myOrdersOrderNumber;
+    @FindBy(linkText="Logout")    WebElement logOutLink;
+
     public OrderPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
@@ -24,21 +29,17 @@ public class OrderPage {
         WebElement accountLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("My account")));
         accountLink.click();
     }
-    @FindBy(linkText="Orders")
-    WebElement ordersLink;
+
     public void clickOnOrders() {
         ordersLink.click();
     }
 
-    @FindBy(css = ".woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number > a")
-    WebElement orderListNumber;
     public String checkOrderNumber() {
         String orderNumber = orderListNumber.getText().substring(1);
         System.out.println("Order Number: " + orderNumber);
         return orderNumber;
     }
-    @FindBy(css ="tr:nth-of-type(1) > .woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-number > a")
-    WebElement myOrdersOrderNumber;
+
     public void compareOrderNumbers(String orderNumber){
         String finalOrderRaw = myOrdersOrderNumber.getText();
         String finalOrder= finalOrderRaw.substring(1);
@@ -48,8 +49,6 @@ public class OrderPage {
 
     }
 
-    @FindBy(linkText="Logout")
-    WebElement logOutLink;
     public void mylogOut() {
         logOutLink.click();
     }

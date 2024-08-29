@@ -9,16 +9,23 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class LaunchCheckoutPage {
-    WebDriver driver;
+public class CheckoutPage {
 
-    public LaunchCheckoutPage(WebDriver driver) {
+    @FindBy(id = "billing_postcode")    WebElement billingPostcode;
+    @FindBy(id = "menu-item-44")        WebElement cartLink;
+    @FindBy(id = "billing_first_name")  WebElement firstNameBox;
+    @FindBy(id = "billing_last_name")   WebElement lastNameBox;
+    @FindBy(id = "select2-billing_country-container")   WebElement billingCountry;
+    @FindBy(id = "billing_address_1")   WebElement billingAddressBox;
+    @FindBy(id = "billing_city")        WebElement billingCityBox;
+    @FindBy(id = "billing_phone")       WebElement billingPhoneBox;
+
+    WebDriver driver;
+    public CheckoutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }
 
-    @FindBy(id = "menu-item-44")
-    WebElement cartLink;
     public void clickCart() {
         cartLink.click();
     }
@@ -30,76 +37,61 @@ public class LaunchCheckoutPage {
         System.out.println("First Name Entered");
     }
 
-    @FindBy(id = "billing_first_name")
-    WebElement firstNameBox;
-    public void enterFirstName() {
+    public void enterFirstName(String firstName) {
         firstNameBox.click();
         firstNameBox.clear();
-        firstNameBox.sendKeys("Mickey");
-        System.out.println("First Name Entered");
+        firstNameBox.sendKeys(firstName);
+
     }
 
-    @FindBy(id = "billing_last_name")
-    WebElement lastNameBox;
-    public void enterLastName() {
-
+    public void enterLastName(String lastName) {
         lastNameBox.click();
         lastNameBox.clear();
-        lastNameBox.sendKeys("Mouse");
+        lastNameBox.sendKeys(lastName);
         System.out.println("Last Name Entered");
     }
 
-    @FindBy(id = "select2-billing_country-container")
-    WebElement billingCountry;
     public void chooseBillingCountry() {
-
         billingCountry.click();
         System.out.println("Billing Country chosen");
     }
 
-    @FindBy(id = "billing_address_1")
-    WebElement billingAddressBox;
-    public void enterBillingAddress() {
+    public void enterBillingAddress(String emailAddress) {
         billingAddressBox.click();
         billingAddressBox.clear();
-        billingAddressBox.sendKeys("123 Main Road");
+        billingAddressBox.sendKeys(emailAddress);
         System.out.println("Billing Address 1 entered");
     }
 
-    @FindBy(id = "billing_city")
-    WebElement billingCityBox;
-    public void enterBillingCity() {
+    public void enterBillingCity(String city) {
         billingCityBox.click();
         billingCityBox.clear();
-        billingCityBox.sendKeys("Glasgow");
+        billingCityBox.sendKeys(city);
         System.out.println("Billing City Entered");
     }
-    @FindBy(id = "billing_phone")
-    WebElement billingPhoneBox;
-    public void enterPhoneNumber() {
+
+    public void enterPhoneNumber(String phone_number) {
         billingPhoneBox.click();
         billingPhoneBox.clear();
-        billingPhoneBox.sendKeys("0141 432 1234");
+        billingPhoneBox.sendKeys(phone_number);
         System.out.println("Billing Phone Entered");
 
     }
 
-    @FindBy(id = "billing_postcode")
-    WebElement billingPostcode;
-    public void enterPostcode() {
+    public void enterPostcode(String postcode) {
         billingPostcode.click();
         billingPostcode.clear();
-        billingPostcode.sendKeys("G11 3XY");
+        billingPostcode.sendKeys(postcode);
         System.out.println("Billing Postcode Entered");
     }
 
-    public void enterEmail() {
+    public void enterEmail(String emailAddress) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
         WebElement emailBox = wait.until(ExpectedConditions.elementToBeClickable(By.id("billing_email")));
         emailBox.click();
         emailBox.clear();
-        emailBox.sendKeys("mickeymouse@hotmail.com");
+        emailBox.sendKeys(emailAddress);
         System.out.println("Email address entered");
     }
 

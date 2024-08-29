@@ -14,6 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class CartPage {
+    @FindBy(name="apply_coupon")    WebElement applyCouponBtn;
+
     WebDriver driver;
 
     //constructor
@@ -32,30 +34,12 @@ public class CartPage {
         System.out.println("coupon box has been found");
     }
 
-    //apply the coupon
-    @FindBy(name="apply_coupon")
-    WebElement applyCouponBtn;
     public void applyCouponBtn(){
 
         applyCouponBtn.click();
         System.out.println("apply coupon button clicked");
     }
 
-    //check for coupon applied successfully banner
-
-//    public void couponPresent(){
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//        WebElement wholePost = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("woocommerce-message")));
-//
-//        String textToFind = "Coupon code applied successfully.";
-//        String pageText = wholePost.getText();
-//        //System.out.println(pageText);
-//
-//        assertTrue(pageText.contains(textToFind), "Text not found: " + textToFind);
-//
-//
-//    }
-    // Check total
     public void getPrice() {
 
         System.out.println("Finding price");
@@ -65,12 +49,8 @@ public class CartPage {
         System.out.println("Total Price is : "+total);
         getDiscount(total);
 
-
     }
 
-
-
-    // Private method to get discount
     private void getDiscount(double totalPrice) {
 
         System.out.println("Waiting for the discount element to have the correct value");
@@ -103,7 +83,6 @@ public class CartPage {
 
     }
 
-    // Private method to get shipping
     public void getShipping() {
         String shippingTotalRaw = driver.findElement(By.cssSelector("ul#shipping_method  label")).getText();
         shippingTotalRaw = shippingTotalRaw.substring(12); // Start the shipping total after Flat rate: £

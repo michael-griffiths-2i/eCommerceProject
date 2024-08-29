@@ -7,48 +7,43 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
+    @FindBy(linkText = "My account")    WebElement myAccountLink;
+    @FindBy(id="username")              WebElement emailBox;
+    @FindBy(name="password")            WebElement passwordBox;
+    @FindBy(name = "login")             WebElement logInBtn;
+    @FindBy(linkText = "Logout")        WebElement logOutBtn;
+
+
+
+
     WebDriver driver;
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this); //stop forgetting this!!!
     }
 
-    //click My account
-    @FindBy(linkText = "My account")
-    WebElement myAccountLink;
     public void myAccountLink(){
         myAccountLink.click();
 
     }
-    //input username
-    @FindBy(id="username")
-    WebElement emailBox;
-    public void emailBox(){
+
+    public void emailBox(String email){
         emailBox.click();
-        emailBox.sendKeys("something@gmail.com"); /*This must be changed to a proper login that is manually setup*/
+        emailBox.sendKeys(email); /*This must be changed to a proper login that is manually setup*/
     }
-    //input password
-    @FindBy(name="password")
-    WebElement passwordBox;
+
     public void passwordBox(){
         passwordBox.click();
         passwordBox.sendKeys("Donotigiveout!"); /*This must be changed to a proper password  that is manually setup*/
     }
 
-    //click login
-    @FindBy(name = "login")
-    WebElement logInBtn;
     public void logIn(){
         logInBtn.click();
 
     }
 
-    //logout
-    @FindBy(linkText = "Logout")
-    WebElement logOutBtn;
     public void logout(){
         logOutBtn.click();
 
     }
-
 }
