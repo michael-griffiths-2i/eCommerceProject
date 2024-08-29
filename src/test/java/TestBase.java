@@ -55,6 +55,6 @@ public class TestBase {
 
     @AfterEach
     void tearDown(){
-       //driver.quit();
+       driver.quit();
     }
 }

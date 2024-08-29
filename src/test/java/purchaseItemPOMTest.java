@@ -1,15 +1,17 @@
 import POMpages.*;
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * This class contains test cases for purchasing items using the Page Object Model (POM).
+ */
 public class purchaseItemPOMTest extends TestBase {
 
+    /**
+     * Test case for buying a beanie and signing up.
+     */
     @Test
     void buyABeanie() {
-        /**
-         * Initializes the HomePage and performs a series of actions.
-         * @param driver WebDriver instance
-         */
+
         home = new HomePage(driver);
         home.clickDismissDemoWarning();
         home.clickShopLink();
@@ -30,6 +32,9 @@ public class purchaseItemPOMTest extends TestBase {
         login.logIn();
     }
 
+    /**
+     * Test case for buying a beanie and signing up.
+     */
     @Test
     void buyABeanieAndSignUp() {
 
@@ -62,12 +67,11 @@ public class purchaseItemPOMTest extends TestBase {
 
             //start of order received
             received= new OrderPage(driver);
-            //cart.getOrderNumber();
+            received.clickOnAccount();
+            received.clickOnOrders();
             received.clickOnAccount();
             received.clickOnOrders();
             String orderNumber = received.checkOrderNumber();
-            received.clickOnAccount();
-            received.clickOnOrders();
             received.compareOrderNumbers(orderNumber);
             received.clickOnAccount();
 

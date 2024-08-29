@@ -1,5 +1,6 @@
 package POMpages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.time.Duration;
 public class HomePage {
@@ -40,20 +42,19 @@ public class HomePage {
     }
 
     public void checkPrice() {
+
         System.out.println("Finding price");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean isTextPresent = wait.until(ExpectedConditions.textToBePresentInElementLocated(
                 By.cssSelector(".woocommerce-Price-amount.amount"), "18"));
 
-        if(isTextPresent){
-            WebElement priceInCart = driver.findElement(By.cssSelector(".woocommerce-Price-amount.amount"));
-            String cartAmount =priceInCart.getText();
-            cartAmount = cartAmount.substring(1); // Create substring totalRaw removing the first character
-            System.out.println("Cart amount is "+cartAmount);
-        }
-        else {
-            System.out.println("The expected price text was not found.");
-        }
+        Assert.assertTrue("The expected price text was not found.", isTextPresent);
+
+        WebElement priceInCart = driver.findElement(By.cssSelector(".woocommerce-Price-amount.amount"));
+        String cartAmount = priceInCart.getText();
+        cartAmount = cartAmount.substring(1); // Create substring totalRaw removing the first character
+        Assert.assertTrue("The expected price text was 18.", cartAmount.equals("18.00"));
+        System.out.println("Cart amount is " + cartAmount);
     }
 
     public void clickViewCartLink(){
