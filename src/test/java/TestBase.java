@@ -29,6 +29,7 @@ public class TestBase {
     protected String CITY;
     protected String POSTCODE;
     protected String PHONE_NUMBER;
+    protected String COUPON;
 
     @BeforeEach
     void setUp() throws IOException {
@@ -45,6 +46,7 @@ public class TestBase {
         CITY = props.getProperty("city");
         POSTCODE = props.getProperty("postcode");
         PHONE_NUMBER = props.getProperty("phoneNumber");
+        COUPON=props.getProperty("couponCode");
 
 
 

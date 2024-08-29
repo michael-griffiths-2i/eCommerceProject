@@ -25,12 +25,12 @@ public class CartPage {
     }
 
 
-    public void couponBox(){
+    public void couponBox(String coupon){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         WebElement couponBox = wait.until(ExpectedConditions.presenceOfElementLocated(By.name("coupon_code")));
         couponBox.click();
-        couponBox.sendKeys("edgewords");
+        couponBox.sendKeys(coupon);
         System.out.println("coupon box has been found");
     }
 
@@ -92,6 +92,4 @@ public class CartPage {
         assertEquals(expectedShippingTotal, shippingTotal, 0.1);
         System.out.println("Shipping Total is accurate");
     }
-
-
 }
