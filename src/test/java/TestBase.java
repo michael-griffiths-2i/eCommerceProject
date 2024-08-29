@@ -4,6 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 public class TestBase {
     /**
      * Make these instances of the class protected for encapsulation
@@ -15,27 +20,37 @@ public class TestBase {
     protected OrderPage received;
     protected CartPage cart;
     protected WebDriver driver;
-    protected String baseUrl ="https://www.edgewordstraining.co.uk/demo-site";
 
-    protected String EMAIL_ADDRESS  =   "something@gmail.com";
-    protected String FIRST_NAME     =   "Mickey";
-    protected String LAST_NAME      =   "Mouse";
-    protected String BILLING_ADDRESS=   "1 High Street";
-    protected String CITY           =   "Glasgow";
-    protected String POSTCODE       =   "G64 1AA";
-    protected String PHONE_NUMBER   =   "0141 772 7720";
-
+    protected String baseUrl;
+    protected String EMAIL_ADDRESS;
+    protected String FIRST_NAME;
+    protected String LAST_NAME;
+    protected String BILLING_ADDRESS;
+    protected String CITY;
+    protected String POSTCODE;
+    protected String PHONE_NUMBER;
 
     @BeforeEach
-    void setUp(){
-
-        driver      =   new FirefoxDriver();
+    void setUp() throws IOException {
+        Properties props = new Properties();
+        FileInputStream fis= new FileInputStream("resources/config.properties");
+        props.load(fis);
+        baseUrl = props.getProperty("baseUrl");
+        driver= new FirefoxDriver();
         driver.get(baseUrl);
-        home        =   new HomePage(driver);
-        login       =   new LoginPage(driver);
-        checkOut    =   new CheckoutPage(driver);
-        cart        =   new CartPage(driver);
-        received    =   new OrderPage(driver);
+        EMAIL_ADDRESS = props.getProperty("emailAddress");
+        FIRST_NAME = props.getProperty("firstName");
+        LAST_NAME = props.getProperty("lastName");
+        BILLING_ADDRESS = props.getProperty("billingAddress");
+        CITY = props.getProperty("city");
+        POSTCODE = props.getProperty("postcode");
+        PHONE_NUMBER = props.getProperty("phoneNumber");
+
+
+
+
+
+
     }
 
     @AfterEach

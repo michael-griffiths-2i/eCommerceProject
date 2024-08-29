@@ -11,14 +11,14 @@ import java.time.Duration;
 
 public class CheckoutPage {
 
-    @FindBy(id = "billing_postcode")    WebElement billingPostcode;
-    @FindBy(id = "menu-item-44")        WebElement cartLink;
-    @FindBy(id = "billing_first_name")  WebElement firstNameBox;
-    @FindBy(id = "billing_last_name")   WebElement lastNameBox;
+    @FindBy(id = "billing_postcode")                    WebElement billingPostcode;
+    @FindBy(id = "menu-item-44")                        WebElement cartLink;
+    @FindBy(id = "billing_first_name")                  WebElement firstNameBox;
+    @FindBy(id = "billing_last_name")                   WebElement lastNameBox;
     @FindBy(id = "select2-billing_country-container")   WebElement billingCountry;
-    @FindBy(id = "billing_address_1")   WebElement billingAddressBox;
-    @FindBy(id = "billing_city")        WebElement billingCityBox;
-    @FindBy(id = "billing_phone")       WebElement billingPhoneBox;
+    @FindBy(id = "billing_address_1")                   WebElement billingAddressBox;
+    @FindBy(id = "billing_city")                        WebElement billingCityBox;
+    @FindBy(id = "billing_phone")                       WebElement billingPhoneBox;
 
     WebDriver driver;
     public CheckoutPage(WebDriver driver) {
@@ -41,7 +41,6 @@ public class CheckoutPage {
         firstNameBox.click();
         firstNameBox.clear();
         firstNameBox.sendKeys(firstName);
-
     }
 
     public void enterLastName(String lastName) {
@@ -75,7 +74,6 @@ public class CheckoutPage {
         billingPhoneBox.clear();
         billingPhoneBox.sendKeys(phone_number);
         System.out.println("Billing Phone Entered");
-
     }
 
     public void enterPostcode(String postcode) {
@@ -96,7 +94,6 @@ public class CheckoutPage {
     }
 
     public void placeOrder() {
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //had to add this to stop the JQuery overlay blocking the button. The button being present wasn't enough.
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".blockUI.blockOverlay")));
@@ -104,6 +101,5 @@ public class CheckoutPage {
         System.out.println("waiting to be clickable");
         placeOrderBtn.click();
         System.out.println("Place Order");
-
     }
 }

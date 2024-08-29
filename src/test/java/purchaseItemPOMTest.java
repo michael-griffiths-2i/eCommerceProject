@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class purchaseItemPOMTest extends TestBase {
 
     @Test
-    void firstTest() {
+    void buyABeanie() {
         /**
          * Initializes the HomePage and performs a series of actions.
          * @param driver WebDriver instance
@@ -17,10 +17,6 @@ public class purchaseItemPOMTest extends TestBase {
         home.checkPrice();
         home.clickViewCartLink();
 
-        /**
-         * Initializes the HomePage and performs a series of actions.
-         * @param driver WebDriver instance
-         */
         cart = new CartPage(driver);
         cart.couponBox();
         cart.applyCouponBtn();
@@ -35,7 +31,7 @@ public class purchaseItemPOMTest extends TestBase {
     }
 
     @Test
-    void secondTest() {
+    void buyABeanieAndSignUp() {
 
             /* logging in */
             login = new LoginPage(driver);
